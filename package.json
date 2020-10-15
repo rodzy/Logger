@@ -1,31 +1,44 @@
 {
-  "name": "auth-exm",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix --ext ts,tsx"
-  },
-  "dependencies": {
-    "next": "9.5.5",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
-    "tailwindcss": "^1.9.2"
-  },
-  "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^3.0.0",
-    "@types/node": "^14.11.8",
-    "@types/react": "^16.9.52",
-    "@types/react-dom": "^16.9.8",
-    "@typescript-eslint/eslint-plugin": "^4.4.1",
-    "@typescript-eslint/parser": "^4.4.1",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^7.11.0",
-    "eslint-plugin-react": "^7.21.4",
-    "postcss-preset-env": "^6.7.0",
-    "typescript": "^4.0.3"
-  }
+    "name": "auth-exm",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix --ext ts,tsx",
+        "find:unused":"next-unused"
+    },
+    "next-unused": {
+        "alias": {
+            "@components": "components/",
+            "@styles": "styles/",
+            "@lib": "lib/"
+        },
+        "include": [
+            "components",
+            "lib"
+        ]
+    },
+    "dependencies": {
+        "next": "9.5.5",
+        "react": "16.14.0",
+        "react-dom": "16.14.0",
+        "tailwindcss": "^1.9.2"
+    },
+    "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^3.0.0",
+        "@types/node": "^14.11.8",
+        "@types/react": "^16.9.52",
+        "@types/react-dom": "^16.9.8",
+        "@typescript-eslint/eslint-plugin": "^4.4.1",
+        "@typescript-eslint/parser": "^4.4.1",
+        "autoprefixer": "^10.0.1",
+        "eslint": "^7.11.0",
+        "eslint-plugin-react": "^7.21.4",
+        "next-unused": "^0.0.3",
+        "postcss-preset-env": "^6.7.0",
+        "typescript": "^4.0.3"
+    }
 }

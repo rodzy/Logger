@@ -23,6 +23,12 @@
     "**/*.ts",
     "**/*.tsx"
   ],
+  "paths": {
+    "@components/*": ["components/*"],
+    "@lib/*": ["lib/*"],
+    "@styles/*": ["styles/*"],
+    "@data/*": ["data/*"]
+  },
   "exclude": [
     "node_modules"
   ]
