@@ -1,16 +1,52 @@
+:root {
+    --bg: #131415;
+    --fg: #fafbfc;
+    --gray: #666;
+    --light-gray: #444;
+    --lighter-gray: #222;
+    --lightest-gray: #1a1a1a;
+    --article-color: #eaeaea;
+    --header-bg: rgba(19, 20, 21, 0.45);
+    --gray-alpha: rgba(255, 255, 255, 0.5);
+    --selection: rgba(255, 255, 255, 0.99);
+
+    /* Typography */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+        sans-serif;
+    --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo",
+        monospace;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    display: flex;
+    flex-direction: column;
+}
+
+p,
+li {
+    letter-spacing: -0.33px;
+    font-size: 1.125rem;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
