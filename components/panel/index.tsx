@@ -1,11 +1,7 @@
 import Auth from '../auth'
 import panelStyles from './panel.module.css'
-
-export interface PanelProps {
-    
-}
  
-const Panel: React.FC<PanelProps> = () => {
+const Panel: React.FC = () => {
     return ( 
         <div className={panelStyles.container}>
             <Auth/>
