@@ -14,6 +14,27 @@ const options = {
                     ? process.env.GITHUB_SECRET
                     : "",
         }),
+        Providers.Facebook({
+            clientId:
+                process.env.FACEBOOK_ID !== undefined
+                    ? process.env.FACEBOOK_ID
+                    : "",
+            clientSecret:
+                process.env.FACEBOOK_SECRET !== undefined
+                    ? process.env.FACEBOOK_SECRET
+                    : "",
+        }),
+        Providers.Google({
+            clientId:
+                process.env.GOOGLE_ID !== undefined
+                    ? process.env.GOOGLE_ID
+                    : "",
+            clientSecret:
+                process.env.GOOGLE_SECRET !== undefined
+                    ? process.env.GOOGLE_SECRET
+                    : "",
+            
+        })
     ],
     debug: process.env.NODE_ENV === "development",
     secret: process.env.AUTH_SECRET,
