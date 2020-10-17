@@ -1,4 +1,5 @@
 import { signIn, signOut, useSession } from "next-auth/client";
+import authStyles from "./auth.module.css";
 
 export interface AuthProps {}
 
@@ -8,18 +9,22 @@ const Auth: React.FC<AuthProps> = () => {
     return (
         <>
             {!session && (
-                <>
-                    {" "}
-                    Not signed in <br />
-                    <button onClick={signIn}>Sign in</button>
-                </>
+                <div>
+                    <p className={authStyles.headingMd}>Not signed in</p>
+                    <button className={authStyles.buttonSign} onClick={signIn}>
+                        Sign in
+                    </button>
+                </div>
             )}
             {session && (
-                <>
-                    {" "}
-                    Signed in as {session.user.email} <br />
-                    <button onClick={signOut}>Sign out</button>
-                </>
+                <div>
+                    <p className={authStyles.headingMd}>
+                        Signed in as {session.user.email}
+                    </p>
+                    <button className={authStyles.buttonSign} onClick={signOut}>
+                        Sign out
+                    </button>
+                </div>
             )}
         </>
     );
