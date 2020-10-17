@@ -3,7 +3,7 @@ import authStyles from "./auth.module.css";
 import { utilsOptions } from "../../utils/options";
 
 const Auth: React.FC = () => {
-    const [session, loading] = useSession();
+    const [session ] = useSession();
 
     return (
         <>
