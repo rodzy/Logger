@@ -7,49 +7,57 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model accounts {
-  id                   Int       @id @default(autoincrement())
-  compound_id          String    @unique
-  user_id              Int
-  provider_type        String
-  provider_id          String
-  provider_account_id  String
-  refresh_token        String?
-  access_token         String?
-  access_token_expires DateTime?
-  created_at           DateTime  @default(now())
-  updated_at           DateTime  @default(now())
+model Account {
+  id                 Int       @default(autoincrement()) @id
+  compoundId         String    @unique @map(name: "compound_id")
+  userId             Int       @map(name: "user_id")
+  providerType       String    @map(name: "provider_type")
+  providerId         String    @map(name: "provider_id")
+  providerAccountId  String    @map(name: "provider_account_id")
+  refreshToken       String?   @map(name: "refresh_token")
+  accessToken        String?   @map(name: "access_token")
+  accessTokenExpires DateTime? @map(name: "access_token_expires")
+  createdAt          DateTime  @default(now()) @map(name: "created_at")
+  updatedAt          DateTime  @default(now()) @map(name: "updated_at")
 
-  @@index([provider_account_id], name: "provider_account_id")
-  @@index([provider_id], name: "provider_id")
-  @@index([user_id], name: "user_id")
+  @@index([providerAccountId], name: "providerAccountId")
+  @@index([providerId], name: "providerId")
+  @@index([userId], name: "userId")
+
+  @@map(name: "accounts")
 }
 
-model sessions {
-  id            Int      @id @default(autoincrement())
-  user_id       Int
-  expires       DateTime
-  session_token String   @unique
-  access_token  String   @unique
-  created_at    DateTime @default(now())
-  updated_at    DateTime @default(now())
+model Session {
+  id           Int      @default(autoincrement()) @id
+  userId       Int      @map(name: "user_id")
+  expires      DateTime
+  sessionToken String   @unique @map(name: "session_token")
+  accessToken  String   @unique @map(name: "access_token")
+  createdAt    DateTime @default(now()) @map(name: "created_at")
+  updatedAt    DateTime @default(now()) @map(name: "updated_at")
+
+  @@map(name: "sessions")
 }
 
-model users {
-  id             Int       @id @default(autoincrement())
-  name           String?
-  email          String?   @unique
-  email_verified DateTime?
-  image          String?
-  created_at     DateTime  @default(now())
-  updated_at     DateTime  @default(now())
+model User {
+  id            Int       @default(autoincrement()) @id
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map(name: "email_verified")
+  image         String?
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @default(now()) @map(name: "updated_at")
+
+  @@map(name: "users")
 }
 
-model verification_requests {
-  id         Int      @id @default(autoincrement())
+model VerificationRequest {
+  id         Int      @default(autoincrement()) @id
   identifier String
   token      String   @unique
   expires    DateTime
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now())
+  createdAt  DateTime  @default(now()) @map(name: "created_at")
+  updatedAt  DateTime  @default(now()) @map(name: "updated_at")
+
+  @@map(name: "verification_requests")
 }
